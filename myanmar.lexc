@@ -1,0 +1,53 @@
+Multichar_Symbols
++N +Pl +Sub +Obj +V +Realis +Nom +Irrealis
+! Lexicon containing lexical stems:
+LEXICON Root
+ပြော V ;
+ သွား V ;
+ ဖတ် V ;
+ ကြိုက် V ;
+ စား V ;
+ စီး V ;
+ ဖက် V ;
+ လုပ် V ;
+ ချစ်  V ;
+ ပေး  V ;
+ ကျွဲ N ;
+ တူ N ;
+ အိမ် N ;
+ စာအုပ် N ;
+ ဖုန်း N ;
+ သား N ;
+ သွား N ;
+ ကား N ;
+ အိုး N ;
+ ပန်းသီး N ;
+
+! Lexicon containing POS tag only:
+LEXICON V
++V: V-suff ;
+
+LEXICON N
++N: N-suff ;
+
+! Lexicon containing inflectional suffixes and corresponding tags:
+LEXICON V-suff
++Realis+Nom:တာ   # ;
++Realis:တယ်  # ;
++Irrealis:မယ် # ;
++Irrealis+Nom:မှာ    # ;
+
+LEXICON N-suff
++Pl+Sub: များက   # ;
++Sub: က  # ;
++Pl:မျာ  # ;
++Pl+Obj: မျာကို    # ;
++Obj: ကို   # ;
+
+
+
+! compile via: $ hfst-lexc myanmar.lexc -o myanmar.hfst
+! words to look up using $ echo <word>+suff | hfst-lookup myannoun.hfst : စာအုပ်+N+Pl+Sub ; ကား+N+Pl+Obj ; ပန်းသီး+N+Pl ; အိုး+N+Sub ; ကျွဲ+N+Obj 
+! words to look up using $ echo <word>+suff | hfst-lookup myanverb.hfst : ပြော+V+Realis+Nom ပြော+V+Realis ပြော+V+Irrealis+Nom ပြော+V+Irrealis သွား+V+Realis သွား+V+Realis+Nom သွား+V+Irrealis+Nom သွား+V+Irrealis ဖတ်+V+Realis+Nom ဖတ်+V+Realis ဖတ်+V+Irrealis+Nom ဖတ်+V+Irrealis
+
+! $ echo စာအုပ်+N+Pl+Sub | hfst-lookup myanmar.hfst
